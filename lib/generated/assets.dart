@@ -42,6 +42,7 @@ class Assets {
   static const String imagesPngtreeOffice = 'assets/images/pngtree_office.png';
   static const String imagesProfileimage = 'assets/images/profileimage.jpg';
   static const String imagesResortRestarunts = 'assets/images/resort_restarunts.jpg';
+  static const String imagesReviewimage = 'assets/images/reviewimage.jpg';
   static const String imagesThumbup = 'assets/images/thumbup.png';
   static const String imagesTwitter = 'assets/images/twitter.png';
   static const String imagesView = 'assets/images/view.png';

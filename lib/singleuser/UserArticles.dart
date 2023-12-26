@@ -180,6 +180,8 @@ class _UserArticlesState extends State<UserArticles> {
                                   EdgeInsets.only(left: 10, top: 5, bottom: 5),
                               child: Text(
                                 dataList[index].description,
+                                maxLines: 5,
+                                overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.w400,

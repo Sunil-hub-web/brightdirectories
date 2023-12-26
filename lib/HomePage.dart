@@ -744,13 +744,16 @@ class _HomePageState extends State<HomePage> {
                                             Padding(
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 15),
-                                              child: Text(
-                                                dataList[index].location,
-                                                style: TextStyle(
-                                                    fontSize: 13,
-                                                    fontWeight: FontWeight.w400,
-                                                    color: cardsubtextcolor,
-                                                    fontFamily: 'Raleway'),
+                                              child: Container(
+                                                width: MediaQuery.of(context).size.width / 1.5,
+                                                child: Text(
+                                                  dataList[index].location,
+                                                  style: TextStyle(
+                                                      fontSize: 10,
+                                                      fontWeight: FontWeight.w400,
+                                                      color: cardsubtextcolor,
+                                                      fontFamily: 'Raleway'),
+                                                ),
                                               ),
                                             ),
                                           ],

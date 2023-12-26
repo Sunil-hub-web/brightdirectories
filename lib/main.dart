@@ -1,4 +1,6 @@
 import 'package:brightdirectories/HomePage.dart';
+import 'package:brightdirectories/evendetails/EventListing.dart';
+import 'package:brightdirectories/memberdetails/MemberReviews.dart';
 import 'package:brightdirectories/memberdetails/SearchMember.dart';
 import 'package:brightdirectories/singleuser/UserArticles.dart';
 import 'package:brightdirectories/singleuser/UserClassified.dart';
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'WhereNx',
       // initialRoute: RouteHelper.getSplashScreenPage(),
       // getPages: RouteHelper.routes,
-      home: SearchMember(),
+      home: EventListing(),
     );
       //dart fix --apply
   }
