@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:brightdirectories/NavigationDrawPage.dart';
 import 'package:brightdirectories/custometheam.dart';
 import 'package:brightdirectories/pageroute/NavigationPageRoute.dart';
@@ -8,8 +10,18 @@ import 'package:brightdirectories/singleuser/UserReviewes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_share_me/flutter_share_me.dart';
 import 'package:get/get.dart';
+import 'package:path/path.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+enum Share {
+  facebook,
+  twitter,
+  whatsapp,
+  whatsapp_business,
+  share_system,
+}
 
 class ShowUserDetails extends StatefulWidget {
   const ShowUserDetails({super.key});
@@ -56,6 +68,7 @@ class _ShowUserDetailsState extends State<ShowUserDetails> {
         description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.jjjjjjjhuygtfrdeswqazxcvb"),
   ];
+
   List<String> icon_black = [
     "assets/images/youtube.png",
     "assets/images/instagram.png",
@@ -66,6 +79,12 @@ class _ShowUserDetailsState extends State<ShowUserDetails> {
   ];
 
   int currentIndex = 1;
+  File? file;
+
+  List<DataImage> dataListImage = [
+    DataImage(imageURL: 'assets/images/facebook_share.png'),
+    DataImage(imageURL: 'assets/images/whatsapp_share.png'),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -133,17 +152,65 @@ class _ShowUserDetailsState extends State<ShowUserDetails> {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: 10, top: 5, bottom: 5),
-                                child: Text(
-                                  "Mark Lee",
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w700,
-                                      color: cardtextcolor,
-                                      fontFamily: 'Raleway'),
-                                ),
+                              Row(
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 10, top: 5, bottom: 5),
+                                    child: Text(
+                                      "Mark Lee",
+                                      style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w700,
+                                          color: cardtextcolor,
+                                          fontFamily: 'Raleway'),
+                                    ),
+                                  ),
+                                  Spacer(),
+                                  Row(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          showdialog(context);
+                                        },
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          child: Image.asset(
+                                            "assets/images/google-maps.png",
+                                            fit: BoxFit.cover,
+                                            width: 30,
+                                            height: 30,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      InkWell(
+                                        onTap: () {
+                                          onButtonTap(
+                                              Share.share_system,
+                                              "User data List",
+                                              "https://www.brightdirectories.com/demo/public/uploads/original/623592121633347866.jpg");
+                                        },
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          child: Image.asset(
+                                            "assets/images/next.png",
+                                            fit: BoxFit.cover,
+                                            width: 30,
+                                            height: 30,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                    ],
+                                  )
+                                ],
                               ),
                               Padding(
                                 padding: EdgeInsets.only(
@@ -387,12 +454,104 @@ class _ShowUserDetailsState extends State<ShowUserDetails> {
               ));
         });
   }
+
+  void showdialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Theme(
+          data: ThemeData(canvasColor: Colors.orange),
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+            ),
+            title: Text(
+              'Biggest Business Directory In The World',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400,
+                  color: cardtextcolor,
+                  fontFamily: 'Raleway'),
+            ),
+            content: Container(
+              height: MediaQuery.of(context).size.height / 3,
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Cancel'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> onButtonTap(
+      Share share, String strData, String strPhotourl) async {
+    String url =
+        "https://www.brightdirectories.com/demo/public/uploads/original/623592121633347866.jpg";
+    String msg = "$strData, $url";
+
+    String? response;
+    final FlutterShareMe flutterShareMe = FlutterShareMe();
+    switch (share) {
+      case Share.facebook:
+        response = await flutterShareMe.shareToFacebook(url: url, msg: msg);
+        break;
+      // case Share.messenger:
+      //   response = await flutterShareMe.shareToMessenger(url: url, msg: msg);
+      //   break;
+      case Share.twitter:
+        response = await flutterShareMe.shareToTwitter(url: url, msg: msg);
+        break;
+      case Share.whatsapp:
+        if (file != null) {
+          response =
+              await flutterShareMe.shareToWhatsApp(imagePath: url, msg: msg);
+        } else {
+          response = await flutterShareMe.shareToWhatsApp(msg: msg);
+        }
+        break;
+      case Share.whatsapp_business:
+        response = await flutterShareMe.shareToWhatsApp(msg: msg);
+        break;
+      case Share.share_system:
+        response = await flutterShareMe.shareToSystem(
+          msg: msg,
+        );
+        break;
+      // case Share.whatsapp_personal:
+      //   response = await flutterShareMe.shareWhatsAppPersonalMessage(
+      //       message: msg, phoneNumber: 'phone-number-with-country-code');
+      //   break;
+      // case Share.share_instagram:
+      //   response = await flutterShareMe.shareToInstagram(
+      //       filePath: file!.path,
+      //       fileType: videoEnable ? FileType.video : FileType.image);
+      //   break;
+      // case Share.share_telegram:
+      //   response = await flutterShareMe.shareToTelegram(msg: msg);
+      //   break;
+    }
+    debugPrint(response);
+  }
 }
 
 class userDet {
   String name;
 
   userDet({required this.name});
+}
+
+class DataImage {
+  String imageURL;
+
+  DataImage({required this.imageURL});
 }
 
 class Data {

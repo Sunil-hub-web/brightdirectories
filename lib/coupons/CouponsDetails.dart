@@ -1,57 +1,50 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../custometheam.dart';
 
-class EventListing extends StatefulWidget {
-  const EventListing({super.key});
+class CouponsDetails extends StatefulWidget {
+  const CouponsDetails({super.key});
 
   @override
-  State<EventListing> createState() => _EventListingState();
+  State<CouponsDetails> createState() => _CouponsDetailsState();
 }
 
-class _EventListingState extends State<EventListing> {
-  String? dropdownCategory;
-
-  List<DropdownMenuItem<String>> get dropdownItems {
-    List<DropdownMenuItem<String>> menuItems = [
-      const DropdownMenuItem(value: "USA11", child: Text("USA")),
-      const DropdownMenuItem(value: "Canada11", child: Text("Canada")),
-      const DropdownMenuItem(
-          value: "Brazil11", child: Text("Brazil1111111111111")),
-      const DropdownMenuItem(value: "England11", child: Text("England")),
-    ];
-    return menuItems;
-  }
-
+class _CouponsDetailsState extends State<CouponsDetails> {
   List<Data> dataList = [
     Data(
-        name: "Lorem Ipsum is simply dum...",
-        imageURL: 'assets/images/eventimage2.jpg',
+        name: "Coupon Seven",
+        imageURL: 'assets/images/giftcopne1.jpg',
         companyname: 'The Late Night Show',
         location: "LIMASSOL, CA, Afghanistan",
-        date: "Jul-29-2021"),
+        date: "Jul-29-2021",
+        couponcode: "WINTER150"
+
+    ),
     Data(
-        name: "Holi Party",
-        imageURL: 'assets/images/eventimage1.jpg',
+        name: "Coupon Code Eight",
+        imageURL: 'assets/images/giftcoupone.jpg',
         companyname: 'Lorem Ipsum is simply dum...',
         location: "LIMASSOL, CA, Afghanistan",
-        date: "Jul-29-2021"),
+        date: "Jul-29-2021",
+        couponcode: "WINTER500"),
     // Data(name: "Whatsapp Business",imageURL: 'assets/images/whatsappbusiness_share.png'),
     Data(
-        name: "Test Event",
-        imageURL: 'assets/images/eventimage1.jpg',
+        name: "Coupon Code Nine",
+        imageURL: 'assets/images/giftcoupone2.jpg',
         companyname: 'Lorem Ipsum is simply dum...',
         location: "LIMASSOL, CA, Afghanistan",
-        date: "Jul-29-2021"),
+        date: "Jul-29-2021",
+        couponcode: "GIFT1800"),
     Data(
         name: "Saturday Night",
-        imageURL: 'assets/images/eventimage2.jpg',
+        imageURL: 'assets/images/giftproduct2.jpg',
         companyname: 'Lorem Ipsum is simply dum...',
         location: "LIMASSOL, CA, Afghanistan",
-        date: "Aug-13-2021"),
+        date: "Aug-13-2021",
+        couponcode: "SPECIAL1000"),
   ];
 
   @override
@@ -61,7 +54,7 @@ class _EventListingState extends State<EventListing> {
         backgroundColor: cardbgcolor,
         centerTitle: true,
         title: Text(
-          "Event Listing",
+          "Coupon",
           style: TextStyle(fontSize: 16, color: Colors.black),
           textAlign: TextAlign.center,
         ),
@@ -119,7 +112,7 @@ class _EventListingState extends State<EventListing> {
                                 childAspectRatio: 0.6,
                                 crossAxisSpacing: 7,
                                 mainAxisSpacing: 7,
-                                mainAxisExtent: 340),
+                                mainAxisExtent: 370),
                             itemBuilder: (context, index) {
                               return GestureDetector(
                                 onTap: () {},
@@ -130,7 +123,7 @@ class _EventListingState extends State<EventListing> {
                                       color: cardbgcolor,
                                       shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
-                                              20)),
+                                              10)),
                                       child: Container(
                                         margin: EdgeInsets.all(5),
                                         width: 50.w,
@@ -160,7 +153,7 @@ class _EventListingState extends State<EventListing> {
                                                   alignment: Alignment.center,
                                                   child: ClipRRect(
                                                     borderRadius:
-                                                    BorderRadius.circular(20),
+                                                    BorderRadius.circular(10),
                                                     child: Image.asset(
                                                       dataList[index].imageURL,
                                                       fit: BoxFit.cover,
@@ -179,38 +172,37 @@ class _EventListingState extends State<EventListing> {
                                                   margin: EdgeInsets.only(
                                                       top: 10, right: 10),
                                                   child: Align(
-                                                      alignment:
-                                                      Alignment.centerRight,
-                                                      child: Container(
-                                                        padding:
-                                                        const EdgeInsets.all(5),
-                                                        margin: const EdgeInsets
-                                                            .all(1),
-                                                        decoration: BoxDecoration(
-                                                            gradient:
-                                                            const LinearGradient(
-                                                              begin: Alignment
-                                                                  .topRight,
-                                                              end: Alignment
-                                                                  .bottomLeft,
-                                                              colors: [
-                                                               Color(0xFF605e7e),
-                                                                Color(0xFF605e7e),
-                                                              ],
-                                                            ),
-                                                            borderRadius:
-                                                            BorderRadius
-                                                                .circular(
-                                                                20)),
-                                                        child: ClipOval(
-                                                          child: Image.asset(
-                                                            "assets/images/wishlist.png",
-                                                            height: 20,
-                                                            width: 20,
-                                                            color: Colors.white,
+                                                    alignment:
+                                                    Alignment.centerRight,
+                                                    child: Container(
+                                                      padding:
+                                                      const EdgeInsets.all(5),
+                                                      margin:
+                                                      const EdgeInsets.all(1),
+                                                      decoration: BoxDecoration(
+                                                          gradient:
+                                                          const LinearGradient(
+                                                            begin:
+                                                            Alignment.topRight,
+                                                            end: Alignment
+                                                                .bottomLeft,
+                                                            colors: [
+                                                              Color(0xFF605e7e),
+                                                              Color(0xFF605e7e),
+                                                            ],
                                                           ),
+                                                          borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                      child: ClipOval(
+                                                        child: Image.asset(
+                                                          "assets/images/wishlist.png",
+                                                          height: 20,
+                                                          width: 20,
+                                                          color: Colors.white,
                                                         ),
                                                       ),
+                                                    ),
                                                   ),
                                                 )
                                               ],
@@ -299,7 +291,7 @@ class _EventListingState extends State<EventListing> {
                                                       child: Text(
                                                         dataList[index]
                                                             .location,
-                                                        maxLines: 5,
+                                                        maxLines: 1,
                                                         overflow:
                                                         TextOverflow.ellipsis,
                                                         style: TextStyle(
@@ -325,37 +317,44 @@ class _EventListingState extends State<EventListing> {
                                             SizedBox(
                                               height: 5,
                                             ),
-                                            Align(
-                                              alignment: Alignment.bottomRight,
-                                              child: Container(
-                                                height: 30,
-                                                width: 60,
-                                                padding: EdgeInsets.only(
-                                                    left: 5,
-                                                    top: 5,
-                                                    bottom: 5,
-                                                    right: 5),
-                                                margin: EdgeInsets.only(
-                                                    left: 5,
-                                                    top: 5,
-                                                    bottom: 5,
-                                                    right: 5),
-                                                decoration: BoxDecoration(
-                                                  color: cardclickcolor,
-                                                  borderRadius:
-                                                  BorderRadius.circular(10),
-                                                ),
-                                                child: Center(
-                                                  child: Text(
-                                                    "View",
-                                                    style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.white,
-                                                        fontFamily: 'Raleway'),
+                                            Container(
+                                              margin: EdgeInsets.all(5),
+                                              child: DottedBorder(
+                                              borderType: BorderType.RRect,
+                                              color: Colors.amber,
+                                              strokeWidth: 2,
+                                              radius: Radius.circular(5),
+                                              padding: EdgeInsets.all(6),
+                                              child: ClipRRect(
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(5)),
+                                                child: Container(
+                                                  height: 8.h,
+                                                  color: couponbackcolor,
+                                                  child: Center(
+                                                      child: Padding(
+                                                        padding: EdgeInsets
+                                                            .only(
+                                                            left: 10,
+                                                            top: 5,
+                                                            bottom: 5),
+                                                        child: Text(
+                                                          dataList[index]
+                                                              .couponcode,
+                                                          style: TextStyle(
+                                                              fontSize: 20,
+                                                              fontWeight: FontWeight
+                                                                  .w700,
+                                                              color: cardtextcolor,
+                                                              fontFamily: 'Raleway'),
+                                                        ),
+                                                      ),
                                                   ),
+
                                                 ),
                                               ),
                                             ),
+                                            )
                                           ],
                                         ),
                                       ),
@@ -385,7 +384,7 @@ class _EventListingState extends State<EventListing> {
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
             ),
             title: Text(
-              'Event Search',
+              'Coupon Search',
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 18,
@@ -407,7 +406,6 @@ class _EventListingState extends State<EventListing> {
                           .size
                           .width,
                       padding: EdgeInsets.symmetric(horizontal: 5),
-                      margin: EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         // color: Color(0xFFF3F3F3),
                           gradient: LinearGradient(
@@ -422,82 +420,12 @@ class _EventListingState extends State<EventListing> {
                       child: Center(
                         child: TextFormField(
                           decoration: InputDecoration(
-                              hintText: "Event Name",
+                              hintText: "Coupon Name",
                               border: InputBorder.none,
                               contentPadding: EdgeInsets.all(5)
                             // prefixIcon: Icon(Icons.search)
                           ),
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      margin: EdgeInsets.symmetric(horizontal: 5),
-                      child: DropdownButtonFormField(
-                        hint: Text(
-                          dropdownCategory ?? "Select Category",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                        decoration: InputDecoration(
-                          //  labelText: 'Choose an Country',
-                          isDense: true,
-                          // important line
-                          contentPadding: EdgeInsets.all(10),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color(0xFFDDE4E4), width: 1.0),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12),
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Color(0xFFDDE4E4),
-                            ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12),
-                            ),
-                          ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(12),
-                            ),
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                        ),
-                        // validator: (value) => value == null
-                        //     ? "Select a country"
-                        //     : null,
-                        dropdownColor: Colors.white,
-                        value: dropdownCategory == ""
-                            ? "Country"
-                            : dropdownCategory,
-                        isExpanded: true,
-                        itemHeight: null,
-                        items: dropdownItems,
-                        isDense: true,
-
-                        // items: _userModel?.map<DropdownMenuItem<String>>(
-                        //     (CountriesResponse country) {
-                        //   return DropdownMenuItem<String>(
-                        //     value: country.name!,
-                        //     child: Text(
-                        //       country.name!,
-                        //       style: TextStyle(fontSize: 15.sp),
-                        //       overflow: TextOverflow.ellipsis,
-                        //     ),
-                        //   );
-                        // }).toList(),
-                        onChanged: (newValue) {
-                          setState(() {});
-                        },
                       ),
                     ),
                     SizedBox(
@@ -531,10 +459,10 @@ class _EventListingState extends State<EventListing> {
                       ),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 10,
                     ),
                     Divider(
-                      height: 5,
+                      height: 1,
                       thickness: 0.1,
                       color: Colors.black,
                     ),
@@ -542,7 +470,7 @@ class _EventListingState extends State<EventListing> {
                       height: 10,
                     ),
                     Text(
-                      "Date Range",
+                      "Coupon Expiry Date",
                       style: TextStyle(
                           fontSize: 18,
                           color: Colors.black,
@@ -573,38 +501,7 @@ class _EventListingState extends State<EventListing> {
                       child: Center(
                         child: TextFormField(
                           decoration: InputDecoration(
-                              hintText: "Start date",
-                              border: InputBorder.none,
-                              suffixIcon: Icon(
-                                Icons.calendar_today_sharp,
-                                size: 20,
-                              ),
-                              contentPadding: EdgeInsets.all(5)),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: MediaQuery
-                          .of(context)
-                          .size
-                          .width,
-                      padding: EdgeInsets.symmetric(horizontal: 5),
-                      margin: EdgeInsets.all(10),
-                      decoration: BoxDecoration(
-                        // color: Color(0xFFF3F3F3),
-                          gradient: LinearGradient(
-                            begin: Alignment.topRight,
-                            end: Alignment.bottomLeft,
-                            colors: [
-                              Color(0xfff8f9fa),
-                              Color(0xfff6f7fb),
-                            ],
-                          ),
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Center(
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                              hintText: "End date",
+                              hintText: "mm/dd/yyyy",
                               border: InputBorder.none,
                               suffixIcon: Icon(
                                 Icons.calendar_today_sharp,
@@ -615,7 +512,7 @@ class _EventListingState extends State<EventListing> {
                       ),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: 10,
                     ),
                     Container(
                         width: MediaQuery
@@ -665,6 +562,7 @@ class Data {
   String companyname;
   String location;
   String date;
+  String couponcode;
 
   Data({
     required this.name,
@@ -672,5 +570,6 @@ class Data {
     required this.companyname,
     required this.location,
     required this.date,
+    required this.couponcode,
   });
 }

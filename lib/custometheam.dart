@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
-var cardbgcolor = const Color(0xfff8f9fa);
-var cardtextcolor = const Color(0xFF504e70);
-var cardsubtextcolor = const Color(0xE6000000);
-var cardsub1textcolor = const Color(0xFF797896);
-var cardclickcolor = const Color(0xFF6963ff);
+var cardbgcolor = Color(0xfff8f9fa);
+var cardtextcolor = Color(0xFF504e70);
+var cardsubtextcolor = Color(0xE6000000);
+var cardsub1textcolor = Color(0xFF797896);
+var cardclickcolor = Color(0xFF6963ff);
+var wishlistbackcolor = Color(0xFF605e7e);
+var tagbackcolor = Color(0xFFececec);
+var couponbackcolor = Color(0x40f2bb1a);
 // 100% — FF
 //
 // 95% — F2

@@ -621,7 +621,7 @@ class _SearchMemberState extends State<SearchMember> {
             ),
             actions: <Widget>[
               TextButton(
-                child: const Text('OK'),
+                child: const Text('Cancel'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
