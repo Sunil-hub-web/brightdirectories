@@ -1,7 +1,20 @@
 import 'dart:math';
 
+import 'package:brightdirectories/HomePage.dart';
+import 'package:brightdirectories/SerachPage.dart';
+import 'package:brightdirectories/coupons/CouponsDetails.dart';
+import 'package:brightdirectories/evendetails/EventByCalender.dart';
+import 'package:brightdirectories/evendetails/EventInLocation.dart';
+import 'package:brightdirectories/evendetails/EventListing.dart';
+import 'package:brightdirectories/galleriesdetails/AudioDetails.dart';
+import 'package:brightdirectories/galleriesdetails/ShowPhotoGalleries.dart';
+import 'package:brightdirectories/galleriesdetails/VideoDetails.dart';
+import 'package:brightdirectories/memberdetails/MemberReviews.dart';
+import 'package:brightdirectories/memberdetails/SearchMember.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'evendetails/SingeEventView.dart';
 
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});
@@ -44,9 +57,18 @@ class _NavigationPageState extends State<NavigationPage> {
           Column(
             children: [
               ListTile(
-                //leading: Icon(Icons.favorite),
+                leading: Image.asset(
+                  "assets/logo/home1.png",
+                  width: 20,
+                  height: 20,
+                ),
                 title: Text("Home"),
-                onTap: () => null,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute(builder: (context) => const HomePage()),
+                  );
+                },
               ),
               Divider(
                 height: 0.5,
@@ -55,29 +77,52 @@ class _NavigationPageState extends State<NavigationPage> {
               ),
               ExpansionTile(
                 title: Text("Member"),
-                //leading: Icon(Icons.person),
+                leading: Image.asset(
+                  "assets/logo/people.png",
+                  width: 20,
+                  height: 20,
+                ),
                 //add icon
                 childrenPadding: EdgeInsets.only(left: 60),
                 //children padding
                 children: [
                   ListTile(
-                    title: Text("Search Member"),
-                    //  leading: Icon(Icons.favorite),
-                    onTap: () {
-                      //action on press
-                    },
-                  ),
+                      title: Text("Search Member"),
+                      leading: Image.asset(
+                        "assets/logo/group.png",
+                        width: 20,
+                        height: 20,
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SearchMember()),
+                        );
+                      }),
 
                   ListTile(
                     title: Text("Member Review"),
-                    //  leading: Icon(Icons.favorite),
+                    leading: Image.asset(
+                      "assets/logo/review.png",
+                      width: 20,
+                      height: 20,
+                    ),
                     onTap: () {
-                      //action on press
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MemberReviews()),
+                      );
                     },
                   ),
                   ListTile(
                     title: Text("Business Member"),
-                    //  leading: Icon(Icons.favorite),
+                    leading: Image.asset(
+                      "assets/logo/handshake.png",
+                      width: 20,
+                      height: 20,
+                    ),
                     onTap: () {
                       //action on press
                     },
@@ -93,31 +138,59 @@ class _NavigationPageState extends State<NavigationPage> {
               ),
               ExpansionTile(
                 title: Text("Events"),
-                //         leading: Icon(Icons.person),
+                leading: Image.asset(
+                  "assets/logo/party.png",
+                  width: 20,
+                  height: 20,
+                ),
                 //add icon
                 childrenPadding: EdgeInsets.only(left: 60),
                 //children padding
                 children: [
                   ListTile(
                     title: Text("Event Listing"),
-                    //           leading: Icon(Icons.favorite),
+                    leading: Image.asset(
+                      "assets/logo/event1.png",
+                      width: 20,
+                      height: 20,
+                    ),
                     onTap: () {
-                      //action on press
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const EventListing()),
+                      );
                     },
                   ),
 
                   ListTile(
                     title: Text("Event In Location"),
-                    //            leading: Icon(Icons.favorite),
+                    leading: Image.asset(
+                      "assets/logo/location1.png",
+                      width: 20,
+                      height: 20,
+                    ),
                     onTap: () {
-                      //action on press
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const EventInLocation()),
+                      );
                     },
                   ),
                   ListTile(
                     title: Text("Event by Calenders"),
-                    //           leading: Icon(Icons.favorite),
+                    leading: Image.asset(
+                      "assets/logo/event2.png",
+                      width: 20,
+                      height: 20,
+                    ),
                     onTap: () {
-                      //action on press
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const EventByCalender()),
+                      );
                     },
                   ),
 
@@ -130,9 +203,19 @@ class _NavigationPageState extends State<NavigationPage> {
                 color: Colors.black,
               ),
               ListTile(
-                //leading: Icon(Icons.favorite),
+                leading: Image.asset(
+                  "assets/logo/promo-code.png",
+                  width: 20,
+                  height: 20,
+                ),
                 title: Text("Coupons"),
-                onTap: () => null,
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CouponsDetails()),
+                  );
+                },
               ),
               Divider(
                 height: 0.5,
@@ -141,33 +224,60 @@ class _NavigationPageState extends State<NavigationPage> {
               ),
               ExpansionTile(
                 title: Text("Galleries"),
-                //         leading: Icon(Icons.person),
+                leading: Image.asset(
+                  "assets/logo/gallery.png",
+                  width: 20,
+                  height: 20,
+                ),
                 //add icon
                 childrenPadding: EdgeInsets.only(left: 60),
                 //children padding
                 children: [
                   ListTile(
                     title: Text("Photo Galleries"),
-                    //          leading: Icon(Icons.favorite),
+                    leading: Image.asset(
+                      "assets/logo/photos.png",
+                      width: 20,
+                      height: 20,
+                    ),
                     onTap: () {
-                      //action on press
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ShowPhotoGalleries()),
+                      );
                     },
                   ),
 
                   ListTile(
                     title: Text("Video"),
-                    //             leading: Icon(Icons.favorite),
+                    leading: Image.asset(
+                      "assets/logo/video.png",
+                      width: 20,
+                      height: 20,
+                    ),
                     onTap: () {
-                      //action on press
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const VideoDetails()),
+                      );
                     },
                   ),
                   ListTile(
-                    title: Text("Audio"),
-                    //          leading: Icon(Icons.favorite),
-                    onTap: () {
-                      //action on press
-                    },
-                  ),
+                      title: Text("Audio"),
+                      leading: Image.asset(
+                        "assets/logo/multimedia.png",
+                        width: 20,
+                        height: 20,
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AudioDetails1()),
+                        );
+                      }),
 
                   //more child menu
                 ],

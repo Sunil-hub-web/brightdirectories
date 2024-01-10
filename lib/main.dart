@@ -1,5 +1,6 @@
 import 'package:brightdirectories/HomePage.dart';
 import 'package:brightdirectories/evendetails/EventListing.dart';
+import 'package:brightdirectories/evendetails/SingeEventView.dart';
 import 'package:brightdirectories/memberdetails/MemberReviews.dart';
 import 'package:brightdirectories/memberdetails/SearchMember.dart';
 import 'package:brightdirectories/singleuser/UserArticles.dart';
@@ -15,7 +16,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  // This widget is the root of your applicat ion.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       title: 'WhereNx',
       // initialRoute: RouteHelper.getSplashScreenPage(),
       // getPages: RouteHelper.routes,
-      home: EventListing(),
+      home: SingeEventView(),
     );
       //dart fix --apply
   }

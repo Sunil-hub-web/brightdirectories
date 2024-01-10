@@ -745,11 +745,11 @@ class _HomePageState extends State<HomePage> {
                                               padding: EdgeInsets.symmetric(
                                                   horizontal: 15),
                                               child: Container(
-                                                width: MediaQuery.of(context).size.width / 1.5,
+                                                width: MediaQuery.of(context).size.width / 3,
                                                 child: Text(
                                                   dataList[index].location,
                                                   style: TextStyle(
-                                                      fontSize: 10,
+                                                      fontSize: 13,
                                                       fontWeight: FontWeight.w400,
                                                       color: cardsubtextcolor,
                                                       fontFamily: 'Raleway'),
